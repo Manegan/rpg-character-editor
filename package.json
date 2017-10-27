@@ -21,5 +21,8 @@
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
     "webpack": "^3.6.0"
+  },
+  "devDependencies": {
+    "immutable": "^3.8.2"
   }
 }
