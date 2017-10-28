@@ -6,7 +6,6 @@ class Menu extends React.Component {
     return (<ul className="nav nav-tabs">
               <li className="nav-item active"><Link className="nav-link" to="/">Home</Link></li>
               <li className="nav-item"><Link className="nav-link" to="/character">Create character</Link></li>
-              <li className="nav-item"><Link className="nav-link" to="/bla2">Topic 2</Link></li>
             </ul>)
   }
 }

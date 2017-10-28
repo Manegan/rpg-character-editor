@@ -1,6 +1,6 @@
 import React from 'react'
 
-import CharacterForm from './components/CharacterForm.jsx'
+import CharacterForm from './CharacterForm.jsx'
 
 class Character extends React.Component {
   render () {
