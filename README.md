@@ -1,7 +1,7 @@
 # rpg-character-editor
 Ce projet a pour but de permettre à ses utilisateurs de créer des templates de feuilles de personnages pour leur jeu de rôle.
 
-Ce projet proposera aussi des templates existants
+Ce projet proposera aussi des templates de jdr existants comme Donjons&Dragons, FATE Core, FATE Accelerated Edition, Pathfinder.
 
 ## Installation
 
@@ -20,3 +20,6 @@ Sur votre navigateur préféré, accéder à l'url :
 
 ## But(s)
 - Pouvoir créer sont template de personnages
+- Utiliser les templates pour créer son personnages
+- Sauvegarder son personnages et le récupérer ultérieurement
+- Un mode MJ où il est possible de rédiger ses aventures et de stocker les feuilles des PNJs
