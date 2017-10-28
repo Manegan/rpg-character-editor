@@ -2,6 +2,7 @@ import React from 'react'
 import {List} from 'immutable'
 
 import Many from './Many.jsx'
+import SectionController from './SectionController.jsx'
 
 class CharacterForm extends React.Component {
   constructor(props) {
@@ -13,21 +14,20 @@ class CharacterForm extends React.Component {
     this.inputs = List([{
         name: "name",
         type: "text",
-        label: "Nom"
+        label: "Name",
+        elem: "input"
       }
     ])
+  }
+
+  addInput() {
+
   }
 
   render () {
     return (<form>
       <Many items={this.inputs} />
-      {/*<AddSection />
-
-        code under creates a components of type + "Component", We can then use
-        something like type = "input"...
-        var MyComponent = Components[type + "Component"]
-        return <MyComponent />
-        */}
+      <SectionController clickEvent={this.addInput.bind(this)} />
     </form>)
   }
 }

@@ -7,12 +7,13 @@ class Many extends React.Component {
     let rows = []
     for (let item of items) {
       if (item.label) {
-        rows.push((<label for={item.name}>{item.label}</label>))
+        rows.push((<span className="input-group-addon">{item.label}</span>))
       }
-      rows.push((<input name={item.name} type={item.type} />))
+      let Elem = item.elem
+      rows.push((<Elem className="form-control" name={item.name} type={item.type} />))
       rows.push((<br/>))
     }
-    return (<div>
+    return (<div className="input-group">
       {rows}
     </div>)
   }
