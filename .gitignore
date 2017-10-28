@@ -1,0 +1,5 @@
+node_modules/
+dist/app.css
+dist/app.js
+dist/mix-manifest.json
+dist/hot
