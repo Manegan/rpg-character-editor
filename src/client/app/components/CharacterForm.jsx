@@ -1,29 +1,28 @@
 import React from 'react'
 import {List} from 'immutable'
-import jQuery from 'jquery'
 
-import Many from './Many.jsx'
+import ManySections from './ManySections.jsx'
 import SectionController from './SectionController.jsx'
 
 class CharacterForm extends React.Component {
   constructor(props) {
     super(props)
     this.sections = List()
-
   }
 
   addSection(e) {
+    console.log(this)
     e.preventDefault()
-    jQuery(e.target).serializeArray().forEach(e => this.sections=this.sections.add(e))
-    console.log(this.state.sections)
+    $(e.target).serializeArray().forEach(e => this.sections=this.sections.push(e))
+    console.log(this.sections)
   }
 
   render () {
     return (<div>
       <form>
-        <Many sections={this.state.sections} />
+        <ManySections sections={this.sections} />
       </form>
-      <SectionController addSection={this.addSection} />
+      <SectionController addSection={this.addSection.bind(this)} />
     </div>)
   }
 }
