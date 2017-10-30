@@ -2,7 +2,7 @@ import React from 'react'
 
 class Many extends React.Component {
   render () {
-    let items = this.props.items
+    let items = this.props.sections
     console.log(items)
     let rows = []
     for (let item of items) {

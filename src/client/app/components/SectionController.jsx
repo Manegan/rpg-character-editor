@@ -26,7 +26,7 @@ class SectionController extends React.Component {
               </div>
             </form>
           </div>
-        </div>²
+        </div>
       </div>
     </div>)
   }

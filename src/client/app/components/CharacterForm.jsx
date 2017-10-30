@@ -9,17 +9,19 @@ class CharacterForm extends React.Component {
   constructor(props) {
     super(props)
     this.sections = List()
-    this.inputs = List()
+
   }
 
-  addSection(section) {
-    console.log(jQuery(e.target).seriaizeArray())
+  addSection(e) {
+    e.preventDefault()
+    jQuery(e.target).serializeArray().forEach(e => this.sections=this.sections.add(e))
+    console.log(this.state.sections)
   }
 
   render () {
     return (<div>
       <form>
-        <Many items={this.inputs} />
+        <Many sections={this.state.sections} />
       </form>
       <SectionController addSection={this.addSection} />
     </div>)
