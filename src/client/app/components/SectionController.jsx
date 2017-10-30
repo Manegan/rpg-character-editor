@@ -1,6 +1,8 @@
 import React from 'react'
+import jQuery from 'jquery'
 
 class SectionController extends React.Component {
+
   render() {
     return (<div>
       <button type="button" className="btn btn-info btn-lg" data-toggle="modal" data-target="#addSectionModal">+</button>
@@ -12,14 +14,19 @@ class SectionController extends React.Component {
               <button type="button" className="close" data-dismiss="modal">&times;</button>
               <h4 className="modal-title">Add a new section</h4>
             </div>
-            <div className="modal-body">
-              <p>Something</p>
-            </div>
-            <div className="modal-footer">
-              <button type="button" className="btn btn-default" data-dismiss="modal">Close</button>
-            </div>
+            <form onSubmit={(e) => {this.props.addSection(e); jQuery('#addSectionModal').modal('hide');}}>
+              <div className="modal-body">
+                <div className="form-group">
+                  <label htmlFor="sectionName">Nom</label>
+                  <input id="sectionName" type="text" className="form-control" name="name" aria-describedby="nameHelp" placeholder="Nom" />
+                </div>
+              </div>
+              <div className="modal-footer">
+                <button className="btn btn-default">Ajouter</button>
+              </div>
+            </form>
           </div>
-        </div>*
+        </div>²
       </div>
     </div>)
   }
