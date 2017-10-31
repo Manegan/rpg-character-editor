@@ -1,23 +1,36 @@
 import React from 'react'
 import ManyInputs from './ManyInputs.jsx'
+import {List} from 'immutable'
 
 class ManySections extends React.Component {
   constructor (props) {
     super(props)
+    this.state = {
+      sections: List()
+    }
+  }
+
+  componentDidMount () {
+    this.setState({sections: this.props.sections})
+  }
+
+  componentWillReceiveProps (newProps) {
+    this.setState({sections: newProps})
   }
 
   render () {
     let sections, inputs
     let rows = []
-    if (sections = this.props.sections) {
-      console.log(sections)
-      for (let section of sections) {
-        if (section.label) {
-          rows.push((<div className="card"><div className="card-block">
-            <h4 className="card-title">{section.name}</h4>
-            <div className="card-body"><ManyInputs inputs={section.inputs}/></div>
-          </div></div>))
-        }
+    console.log("many sections: ", this.state.sections)
+    for (let section of this.state.sections) {
+      if (section.label) {
+        rows.push((<div className="card"><div className="card-block">
+              <h4 className="card-title">{section.name}</h4>
+              <div className="card-body">
+                <ManyInputs inputs={section.inputs}/>
+              </div>
+            </div>
+          </div>))
       }
     }
     return (<div>

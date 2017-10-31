@@ -7,20 +7,20 @@ import SectionController from './SectionController.jsx'
 class CharacterForm extends React.Component {
   constructor(props) {
     super(props)
-    this.sections = List()
+    this.state = {
+      sections: List()
+    }
   }
 
-  addSection(e) {
-    console.log(this)
-    e.preventDefault()
-    $(e.target).serializeArray().forEach(e => this.sections=this.sections.push(e))
-    console.log(this.sections)
+  addSection(arr) {
+    arr.forEach(e => this.state.sections = this.state.sections.push(e))
+    console.log("sections form: ", this.state.sections)
   }
 
   render () {
     return (<div>
       <form>
-        <ManySections sections={this.sections} />
+        <ManySections sections={this.state.sections} />
       </form>
       <SectionController addSection={this.addSection.bind(this)} />
     </div>)

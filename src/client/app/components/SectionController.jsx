@@ -5,12 +5,20 @@ import ManyInputs from './ManyInputs.jsx'
 class SectionController extends React.Component {
   constructor (props) {
     super(props)
-    this.inputs = List([{
-      elem: "input",
-      label: "Nom",
-      name: "name",
-      type: "text"
-    }])
+    this.state = {
+      inputs: List([{
+        elem: "input",
+        label: "Nom",
+        name: "name",
+        type: "text"
+      }])
+    }
+  }
+
+  addSectionEvent (e) {
+    e.preventDefault()
+    this.props.addSection($(e.target).serializeArray())
+    $('#addSectionModal').modal('hide')
   }
 
   render() {
@@ -24,9 +32,9 @@ class SectionController extends React.Component {
               <button type="button" className="close" data-dismiss="modal">&times;</button>
               <h4 className="modal-title">Add a new section</h4>
             </div>
-            <form onSubmit={(e) => {this.props.addSection(e); $('#addSectionModal').modal('hide');}}>
+            <form onSubmit={this.addSectionEvent.bind(this)}>
               <div className="modal-body">
-                <ManyInputs inputs={this.inputs} />
+                <ManyInputs inputs={this.state.inputs} />
               </div>
               <div className="modal-footer">
                 <button className="btn btn-default">Ajouter</button>

@@ -1,15 +1,27 @@
 import React from 'react'
+import {List} from 'immutable'
 
 class ManyInputs extends React.Component {
   constructor (props) {
     super(props)
+    this.state = {
+      inputs: List()
+    }
+  }
+
+  componentDidMount () {
+    this.setState({inputs: this.props.inputs})
+  }
+
+  componentWillReceiveProps(newProps) {
+    this.setState({inputs: newProps})
   }
 
   render () {
     let sections, inputs
     let rows = []
-    if (inputs = this.props.inputs) {
-      console.log(inputs)
+    if (inputs = this.state.inputs) {
+      console.log("Many inputs: ", inputs)
       for (let item of inputs) {
         if (item.label) {
           rows.push((<span className="input-group-addon">{item.label}</span>))
