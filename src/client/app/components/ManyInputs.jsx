@@ -14,22 +14,20 @@ class ManyInputs extends React.Component {
   }
 
   componentWillReceiveProps(newProps) {
+    console.log("componentWillReceiveProps: ", newProps)
     this.setState({inputs: newProps})
   }
 
   render () {
-    let sections, inputs
     let rows = []
-    if (inputs = this.state.inputs) {
-      console.log("Many inputs: ", inputs)
-      for (let item of inputs) {
-        if (item.label) {
-          rows.push((<span className="input-group-addon">{item.label}</span>))
-        }
-        let Elem = item.elem || "div"
-        rows.push((<Elem className="form-control" name={item.name} type={item.type} />))
-        rows.push((<br/>))
+    console.log("Many inputs: ", this.state.inputs)
+    for (let item of this.state.inputs) {
+      if (item.label) {
+        rows.push((<span className="input-group-addon">{item.label}</span>))
       }
+      let Elem = item.elem || "div"
+      rows.push((<Elem className="form-control" name={item.name} type={item.type} />))
+      rows.push((<br/>))
     }
     return (<div className="input-group">
       {rows}

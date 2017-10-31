@@ -13,7 +13,7 @@ class CharacterForm extends React.Component {
   }
 
   addSection(arr) {
-    arr.forEach(e => this.state.sections = this.state.sections.push(e))
+    arr.forEach(e => this.setState({state: this.state.sections.push(e)}))
     console.log("sections form: ", this.state.sections)
   }
 

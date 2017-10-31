@@ -11,20 +11,20 @@ class ManySections extends React.Component {
   }
 
   componentDidMount () {
-    this.setState({sections: this.props.sections})
+    this.setState({sections: List(this.props.sections)})
   }
 
   componentWillReceiveProps (newProps) {
-    this.setState({sections: newProps})
+    this.setState({sections: List(newProps)})
   }
 
   render () {
-    let sections, inputs
     let rows = []
     console.log("many sections: ", this.state.sections)
     for (let section of this.state.sections) {
       if (section.label) {
-        rows.push((<div className="card"><div className="card-block">
+        rows.push((<div className="card">
+            <div className="card-block">
               <h4 className="card-title">{section.name}</h4>
               <div className="card-body">
                 <ManyInputs inputs={section.inputs}/>
