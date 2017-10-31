@@ -1,6 +1,5 @@
 node_modules/
-dist/app.css
-dist/app.js
+dist/app*
 dist/mix-manifest.json
 dist/hot
 dist/bundle.js

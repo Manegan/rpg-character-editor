@@ -13,14 +13,19 @@ class CharacterForm extends React.Component {
   }
 
   addSection(arr) {
-    arr.forEach(e => this.setState({state: this.state.sections.push(e)}))
-    console.log("sections form: ", this.state.sections)
+    this.setState({sections: this.state.sections.push(arr)}, () => console.log(this.state.sections))
+  }
+
+  deleteSection (e) {
+    let toDelete = $(e.target).parent().find("h4").text()
+    let index = this.state.sections.indexOf(this.state.sections.find(e => e.name === toDelete))
+    this.setState({sections: this.state.sections.remove(index)})
   }
 
   render () {
     return (<div>
       <form>
-        <ManySections sections={this.state.sections} />
+        <ManySections sections={this.state.sections} deleteSection={this.deleteSection.bind(this)} />
       </form>
       <SectionController addSection={this.addSection.bind(this)} />
     </div>)

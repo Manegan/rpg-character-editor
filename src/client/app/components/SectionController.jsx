@@ -17,7 +17,12 @@ class SectionController extends React.Component {
 
   addSectionEvent (e) {
     e.preventDefault()
-    this.props.addSection($(e.target).serializeArray())
+    let formArray = $(e.target).serializeArray()
+    let formObject = {}
+    for (let i in formArray) {
+      formObject[formArray[i]["name"]] = formArray[i]["value"]
+    }
+    this.props.addSection(formObject)
     $('#addSectionModal').modal('hide')
   }
 
