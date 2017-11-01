@@ -21,6 +21,7 @@ class ManySections extends React.Component {
       if (section.name) {
         rows.push((<div className="card">
             <div className="card-block">
+              <input type="hidden" value={section.key} />
               <h4 className="card-title">{section.name}</h4>
               <button type="button" className="close pull-right float-right" onClick={e => this.props.deleteSection(e)}>&times;</button>
               <div className="card-body">

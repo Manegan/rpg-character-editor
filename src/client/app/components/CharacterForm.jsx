@@ -17,8 +17,8 @@ class CharacterForm extends React.Component {
   }
 
   deleteSection (e) {
-    let toDelete = $(e.target).parent().find("h4").text()
-    let index = this.state.sections.indexOf(this.state.sections.find(e => e.name === toDelete))
+    let toDelete = $(e.target).parent().find("input").val()
+    let index = this.state.sections.indexOf(this.state.sections.find(e => e.key === toDelete))
     this.setState({sections: this.state.sections.remove(index)})
   }
 

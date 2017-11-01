@@ -5,6 +5,7 @@ import ManyInputs from './ManyInputs.jsx'
 class SectionController extends React.Component {
   constructor (props) {
     super(props)
+    this.currentKey = 0
     this.state = {
       inputs: List([{
         elem: "input",
@@ -18,7 +19,8 @@ class SectionController extends React.Component {
   addSectionEvent (e) {
     e.preventDefault()
     let formArray = $(e.target).serializeArray()
-    let formObject = {}
+    let formObject = {key: this.currentKey}
+    this.currentKey += 1
     for (let i in formArray) {
       formObject[formArray[i]["name"]] = formArray[i]["value"]
     }
