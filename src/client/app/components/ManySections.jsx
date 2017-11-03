@@ -11,19 +11,19 @@ class ManySections extends React.Component {
   }
 
   componentWillReceiveProps (newProps) {
-    this.setState({sections: newProps.sections}, () => console.log("new state in manysections: ", this.state))
+    this.setState(newProps)
   }
 
   render () {
     let rows = []
-    console.log("many sections: ", this.state.sections)
+    // console.log("many sections: ", this.state.sections)
     for (let section of this.state.sections) {
       if (section.name) {
-        rows.push((<div className="card">
+        rows.push((<div className="card section">
             <div className="card-block">
               <input type="hidden" value={section.key} />
+              <button type="button" className="close pull-right" onClick={e => this.props.deleteSection(e)}>&times;</button>
               <h4 className="card-title">{section.name}</h4>
-              <button type="button" className="close pull-right float-right" onClick={e => this.props.deleteSection(e)}>&times;</button>
               <div className="card-body">
                 {/* <ManyInputs inputs={section.inputs}/>*/}
               </div>

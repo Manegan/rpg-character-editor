@@ -11,7 +11,8 @@ class SectionController extends React.Component {
         elem: "input",
         label: "Nom",
         name: "name",
-        type: "text"
+        type: "text",
+        sectionInputs: List()
       }])
     }
   }
@@ -20,7 +21,7 @@ class SectionController extends React.Component {
     e.preventDefault()
     let formArray = $(e.target).serializeArray()
     let formObject = {key: this.currentKey}
-    this.currentKey += 1
+    this.currentKey ++
     for (let i in formArray) {
       formObject[formArray[i]["name"]] = formArray[i]["value"]
     }
@@ -36,12 +37,15 @@ class SectionController extends React.Component {
         <div className="dialog">
           <div className="modal-content">
             <div className="modal-header">
-              <button type="button" className="close" data-dismiss="modal">&times;</button>
               <h4 className="modal-title">Add a new section</h4>
+              <button type="button" className="close" data-dismiss="modal">&times;</button>
             </div>
             <form onSubmit={this.addSectionEvent.bind(this)}>
               <div className="modal-body">
                 <ManyInputs inputs={this.state.inputs} />
+                <fieldset name="inputs">
+                  <ManyInputs inputs={this.state.inputs.sectionInputs} />
+                </fieldset>
               </div>
               <div className="modal-footer">
                 <button className="btn btn-default">Ajouter</button>

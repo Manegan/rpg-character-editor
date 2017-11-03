@@ -13,12 +13,12 @@ class CharacterForm extends React.Component {
   }
 
   addSection(arr) {
-    this.setState({sections: this.state.sections.push(arr)}, () => console.log(this.state.sections))
+    this.setState({sections: this.state.sections.push(arr)})
   }
 
   deleteSection (e) {
-    let toDelete = $(e.target).parent().find("input").val()
-    let index = this.state.sections.indexOf(this.state.sections.find(e => e.key === toDelete))
+    let toDelete = $(e.target).parent().find("input[type='hidden']").val()
+    let index = this.state.sections.findIndex(e => e.key == toDelete)
     this.setState({sections: this.state.sections.remove(index)})
   }
 

@@ -17,16 +17,19 @@ class ManyInputs extends React.Component {
     let rows = []
     // console.log("Many inputs: ", this.state.inputs)
     if (this.state.inputs) {
-      this.state.inputs.forEach(item => {
+      this.state.inputs.forEach((item, i) => {
+        let currentElem = []
+        if (List.isList(item)) return;
         if (item.label) {
-          rows.push((<span className="input-group-addon">{item.label}</span>))
+          currentElem.push((<span className="input-group-addon">{item.label}</span>))
         }
         let Elem = item.elem || "div"
-        rows.push((<Elem className="form-control" name={item.name} type={item.type} />))
-        rows.push((<br/>))
+        currentElem.push((<Elem className="form-control" name={item.name} type={item.type} />))
+        currentElem.push((<br/>))
+        rows.push((<div className="input-group" key={i}>{currentElem}</div>))
       })
     }
-    return (<div className="input-group">
+    return (<div>
       {rows}
     </div>)
   }
