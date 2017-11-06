@@ -4,3 +4,4 @@ dist/client/*css*
 dist/client/mix-manifest.json
 dist/client/hot
 dist/server
+mix-manifest.json
