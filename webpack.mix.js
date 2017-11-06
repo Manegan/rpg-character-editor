@@ -1,6 +1,7 @@
 let mix = require('laravel-mix')
 
-mix.js('src/client/app/app.jsx', 'dist')
-   .sass('src/client/style/app.sass', 'dist')
+mix.react('src/client/app/app.jsx', 'dist/client')
+   .extract(['react', 'react-dom', 'react-router', 'react-router-dom'])
+   .sass('src/client/style/app.sass', 'dist/client')
    .sourceMaps()
-   .setPublicPath('dist')
+   .setPublicPath('dist/client')

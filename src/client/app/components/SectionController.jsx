@@ -12,8 +12,8 @@ class SectionController extends React.Component {
         label: "Nom",
         name: "name",
         type: "text",
-        sectionInputs: List()
-      }])
+      }]),
+      sectionInputs: List()
     }
   }
 
@@ -29,9 +29,34 @@ class SectionController extends React.Component {
     $('#addSectionModal').modal('hide')
   }
 
+  addSectionInput (e) {
+    e.preventDefault()
+    let inputs = [{
+        elem: "input",
+        label: "Nom de l'entrée",
+        name: "name",
+        type: "text"
+      },
+      {
+        elem: "select",
+        label: "Type",
+        name: "name"
+      }
+    ]
+    console.log(this.state)
+    this.setState({sectionInputs: this.state.sectionInputs.push(...inputs)})
+  }
+
   render() {
     return (<div>
-      <button type="button" className="btn btn-info btn-lg" data-toggle="modal" data-target="#addSectionModal">+</button>
+      <button type="button" className="btn btn-info btn-lg"
+            data-toggle="modal"
+            data-target="#addSectionModal">
+         <a data-toggle="tooltip"
+            data-placement="right"
+            data-animation="false"
+            data-original-title="Ajouter une section à votre model">+</a>
+      </button>
 
       <div className="modal" id="addSectionModal" role="dialog">
         <div className="dialog">
@@ -42,9 +67,15 @@ class SectionController extends React.Component {
             </div>
             <form onSubmit={this.addSectionEvent.bind(this)}>
               <div className="modal-body">
+                <button onClick={this.addSectionInput.bind(this)}
+                        className="btn btn-default"
+                        data-toggle="tooltip"
+                        data-placement="right"
+                        data-animation="false"
+                        data-original-title="Cliquer pour ajouter une entrée à la section" >Ajouter input</button>
                 <ManyInputs inputs={this.state.inputs} />
                 <fieldset name="inputs">
-                  <ManyInputs inputs={this.state.inputs.sectionInputs} />
+                  <ManyInputs inputs={this.state.sectionInputs} />
                 </fieldset>
               </div>
               <div className="modal-footer">

@@ -27,7 +27,7 @@ class CharacterForm extends React.Component {
       <form>
         <ManySections sections={this.state.sections} deleteSection={this.deleteSection.bind(this)} />
       </form>
-      <SectionController addSection={this.addSection.bind(this)} />
+      <SectionController addSection={this.addSection.bind(this)}/>
     </div>)
   }
 }

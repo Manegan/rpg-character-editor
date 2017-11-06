@@ -1,6 +1,8 @@
 import React from 'react'
 import {List} from 'immutable'
 
+import ElemFactory from '../../services/ElementFactory'
+
 class ManyInputs extends React.Component {
   constructor (props) {
     super(props)
@@ -18,6 +20,7 @@ class ManyInputs extends React.Component {
     // console.log("Many inputs: ", this.state.inputs)
     if (this.state.inputs) {
       this.state.inputs.forEach((item, i) => {
+        ElemFactory.createElement(item)
         let currentElem = []
         if (List.isList(item)) return;
         if (item.label) {
