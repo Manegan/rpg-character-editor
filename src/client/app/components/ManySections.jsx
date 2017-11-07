@@ -25,7 +25,7 @@ class ManySections extends React.Component {
               <button type="button" className="close pull-right" onClick={e => this.props.deleteSection(e)}>&times;</button>
               <h4 className="card-title">{section.name}</h4>
               <div className="card-body">
-                {/* <ManyInputs inputs={section.inputs}/>*/}
+                <ManyInputs inputs={section.inputs}/>
               </div>
             </div>
           </div>))

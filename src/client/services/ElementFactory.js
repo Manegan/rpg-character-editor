@@ -13,6 +13,7 @@ export default {
   },
 
   createElement (properties) {
-    return this._elemMap[properties.type](properties) || "Error"
+    console.log(properties)
+    return this._elemMap[properties.type] || "Error"
   }
 }

@@ -20,6 +20,7 @@ class ManyInputs extends React.Component {
     // console.log("Many inputs: ", this.state.inputs)
     if (this.state.inputs) {
       this.state.inputs.forEach((item, i) => {
+        console.log(item)
         ElemFactory.createElement(item)
         let currentElem = []
         if (List.isList(item)) return;
