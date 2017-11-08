@@ -47,11 +47,23 @@ class SectionController extends React.Component {
     this.setState({sectionInputs: this.state.sectionInputs.push(...inputs)})
   }
 
+  cleanObjects (e) {
+    e.preventDefault()
+    this.setState({inputs: List([{
+      elem: "input",
+      label: "Nom",
+      name: "name",
+      type: "text",
+    }]),
+    sectionInputs: List()})
+  }
+
   render() {
     return (<div>
       <button type="button" className="btn btn-info btn-lg"
             data-toggle="modal"
-            data-target="#addSectionModal">
+            data-target="#addSectionModal"
+            onClick={this.cleanObjects.bind(this)}>
          <a data-toggle="tooltip"
             data-placement="right"
             data-animation="false"

@@ -12,7 +12,7 @@ class App extends React.Component {
                 <Menu /> <br/>
                 <Route exact path="/" component={Home} />
                 <Route path="/character" component={Character} />
-                <Route path="/login" component={Login} />
+                {/* <Route path="/login" component={Login} /> */}
               </div>
             </Router>)
   }
