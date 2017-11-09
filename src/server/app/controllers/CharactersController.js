@@ -1,5 +1,5 @@
 var mongoose = require('mongoose')
-var Character = mongoose.model('characters', require('../models/CharacterModel.js'))
+var Character = mongoose.model('character', require('../models/CharacterModel.js'))
 
 exports.list_all_chars = function (req, res) {
   Character.find({}, function (err, task) {
