@@ -1,9 +1,21 @@
 var mongoose = require('mongoose')
 var schema = mongoose.Schema
 
-var UserModel = new schema({
+const UserSchema = new schema({
   username: {type: String},
   passwordHash: {type: String}
 })
 
-export default UserModel
+const User = mongoose.model('user', UserSchema)
+
+exports.create_user = function (user) {
+  return new User(user)
+}
+
+exports.find = function (req, cb) {
+  User.find(req, cb)
+}
+
+exports.findOne = function (req, cb) {
+  User.findOne(req, cb)
+}

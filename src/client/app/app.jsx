@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom'
 import Menu from './components/Menu.jsx'
 import Home from './components/Home.jsx'
 import Character from './components/Character.jsx'
+import Login from './components/Login.jsx'
 
 class App extends React.Component {
   render () {
@@ -12,7 +13,7 @@ class App extends React.Component {
                 <Menu /> <br/>
                 <Route exact path="/" component={Home} />
                 <Route path="/character" component={Character} />
-                {/* <Route path="/login" component={Login} /> */}
+                <Route path="/login" component={Login} />
               </div>
             </Router>)
   }

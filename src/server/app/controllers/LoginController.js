@@ -1,18 +1,14 @@
-var mongoose = require('mongoose')
 var bcrypt = require('bcrypt')
-
-var schema = mongoose.Schema
- // apparement il faut tout dans le même fichier pour le model, à tenter : mettre le model et exporter un const du model
-var UserSchema = new schema({
-  username: {type: String},
-  passwordHash: {type: String}
-})
-
-var User = mongoose.model('user', UserSchema)
+const User = require('../models/UserModel.js')
 
 exports.user_login = function (req, res) {
-  User.find({username: req.body.username}, function (err, user) {
+  User.findOne({username: req.body.username}, function (err, user) {
     if (err) res.send(err)
+    console.log(user)
+    if (!user) {
+      res.send(`User ${req.body.username} does not exist in db.`)
+      return
+    }
     if (bcrypt.compareSync(req.body.password, user.passwordHash)) {
       res.json({isLoggedIn: true, username: req.body.username})
     } else {
@@ -23,8 +19,7 @@ exports.user_login = function (req, res) {
 
 exports.create_account = function (req, res) {
   let hash = bcrypt.hashSync(req.body.password, 10)
-  var userObj = new User({username: req.body.username, passwordHash: hash})
-  console.log(userObj)
+  var userObj = User.create_user({username: req.body.username, passwordHash: hash})
 
   User.find({username: req.body.username}, function (err, user) {
     if (!user.username) {

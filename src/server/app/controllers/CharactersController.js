@@ -1,5 +1,4 @@
-var mongoose = require('mongoose')
-var Character = mongoose.model('character', require('../models/CharacterModel.js'))
+const Character = require('../models/CharacterModel.js')
 
 exports.list_all_chars = function (req, res) {
   Character.find({}, function (err, task) {
@@ -12,8 +11,8 @@ exports.list_all_chars = function (req, res) {
 }
 
 exports.create_char = function (req, res) {
-  var newChar = new Chararacter(req.body)
-  newChar.save(function (err, task) {
+  var newChar = Chararacter.create_char(req.body)
+  newChar.save(function (err, char) {
     if (err) res.send(err)
     res.json({result: "SUCCESS"})
   })
