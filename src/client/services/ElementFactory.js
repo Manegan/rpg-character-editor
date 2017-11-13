@@ -14,6 +14,6 @@ var _elemMap = {
 export default {
   createElement (properties) {
     console.log(properties)
-    return this._elemMap[properties.type] || "Error"
+    return _elemMap[properties.type] || "Error"
   }
 }

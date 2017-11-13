@@ -4,7 +4,7 @@ const User = require('../models/UserModel.js')
 exports.user_login = function (req, res) {
   User.findOne({username: req.body.username}, function (err, user) {
     if (err) res.send(err)
-    console.log(user)
+    console.log(req.body)
     if (!user) {
       res.send(`User ${req.body.username} does not exist in db.`)
       return
