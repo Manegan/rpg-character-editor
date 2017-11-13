@@ -2,14 +2,11 @@ var bcrypt = require('bcrypt')
 const User = require('../models/UserModel.js')
 
 exports.user_login = function (req, res) {
+  console.log(User)
   User.findOne({username: req.body.username}, function (err, user) {
     if (err) res.send(err)
     console.log(req.body)
-    if (!user) {
-      res.send(`User ${req.body.username} does not exist in db.`)
-      return
-    }
-    if (bcrypt.compareSync(req.body.password, user.passwordHash)) {
+    if (user && bcrypt.compareSync(req.body.password, user.passwordHash)) {
       res.json({isLoggedIn: true, username: req.body.username})
     } else {
       res.json({isLoggedIn: false})

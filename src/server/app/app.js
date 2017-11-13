@@ -11,8 +11,12 @@ const app = express()
 const port = 3000
 
 app.use(function (req, res, next) {
+  if (req.method == 'OPTIONS') {
+    res.header("Access-Control-Allow-Headers", "X-Requested-With,content-type")
+  }
   res.header("Access-Control-Allow-Origin", "*")
-  res.header("Access-Control-Allow-Headers", "X-Requested-With")
+  res.header("Content-Type", "application/json")
+  // console.log(req)
   next()
 })
 

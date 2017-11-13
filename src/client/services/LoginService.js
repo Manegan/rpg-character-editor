@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-var currentUser = {
+var user = {
   isLoggedIn: false,
   username: undefined
 }
@@ -8,21 +8,25 @@ var currentUser = {
 export default {
   login (form) {
     console.log(form)
-    axios({
+    return axios({
       url: 'http://localhost:3000/login',
       method: 'POST',
-      headers: {'Content-Type': 'application/x-www-form-urlencoded', 'X-Requested-With': 'XMLHttpRequest'},
+      headers: {'Content-Type': 'application/json', 'X-Requested-With': 'XMLHttpRequest'},
       data: form
-    })
-    .then(function (resp) {
-      currentUser = resp
-    })
-    .catch(function (error) {
-      console.log(error)
+    }).then(function (resp) {
+      user = resp.data
+      return resp.data
     })
   },
 
-  logout (user) {
+  logout () {
+    user = {
+      isLoggedIn: false,
+      username: undefined
+    }
+  },
 
+  getUser() {
+    return user
   }
 }
