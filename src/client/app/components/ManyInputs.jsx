@@ -1,7 +1,7 @@
 import React from 'react'
 import {List} from 'immutable'
 
-import ElemFactory from '../../services/ElementFactory'
+import ElemFactory from '../services/ElementFactory'
 
 class ManyInputs extends React.Component {
   constructor (props) {

@@ -6,6 +6,7 @@ import Home from './components/Home.jsx'
 import Character from './components/Character.jsx'
 import Login from './components/Login.jsx'
 
+
 class App extends React.Component {
   render () {
     return (<Router>

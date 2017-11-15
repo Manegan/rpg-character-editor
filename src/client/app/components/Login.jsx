@@ -1,6 +1,6 @@
 import React from 'react'
 import LoginForm from './LoginForm.jsx'
-import LoginService from '../../services/LoginService.js'
+import LoginService from '../services/LoginService.js'
 
 class Login extends React.Component {
   constructor (props) {
