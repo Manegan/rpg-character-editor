@@ -2,7 +2,6 @@ var bcrypt = require('bcrypt')
 const User = require('../models/UserModel.js')
 
 exports.user_login = function (req, res) {
-  console.log(User)
   User.findOne({username: req.body.username}, function (err, user) {
     if (err) res.send(err)
     console.log(req.body)
