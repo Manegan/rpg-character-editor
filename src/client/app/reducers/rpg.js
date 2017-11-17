@@ -3,11 +3,13 @@ import {
   USER_LOGIN,
   USER_LOGOUT
 } from '../actions/userActions'
+import LoginService from '../services/LoginService'
 
-const initialState = {
-  isLoggedIn: false,
-  username: undefined
-}
+const initialState = LoginService.getUser()
+// {
+//   isLoggedIn: false,
+//   username: undefined
+// }
 
 function user(state, action) {
   if (!state) return initialState
