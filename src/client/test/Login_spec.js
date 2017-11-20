@@ -17,12 +17,12 @@ describe('Home', () => {
   it('should create Home component', function () {
     var component = TestUtils.renderIntoDocument((<Provider store={store}><LoginContainer /></Provider>))
 
-    $("input[name='username']").val("toto")
+    $("input[name='username']").val("manegan")
+    console.log($("input[name='username']").val())
     $("input[name='password']").val("lol")
     var form = TestUtils.findRenderedDOMComponentWithTag(component, 'form')
-    // console.log(TestUtils.Simulate)
+    console.log(form)
     TestUtils.Simulate.submit(form)
     expect(LoginService.getUser()).to.deep.equal({isLoggedIn: false, username: undefined})
-    // expect(ReactDOM.findDOMNode(h4).textContent).to.equal('RPG Character editor!')
   })
 })

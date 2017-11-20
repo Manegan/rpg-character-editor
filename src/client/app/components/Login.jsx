@@ -11,8 +11,8 @@ class Login extends React.Component {
 
   static mapStateToProps (state) {
     return {
-      isLoggedIn: state.isLoggedIn,
-      username: state.username
+      isLoggedIn: state.user.isLoggedIn,
+      username: state.user.username
     }
   }
 
@@ -36,7 +36,7 @@ class Login extends React.Component {
     }
     LoginService.login(form)
     .then(function (resp) {
-      console.log(resp)
+      // console.log(resp)
       that.props.loginUser(resp)
     })
     .catch(function (error) {
@@ -64,4 +64,4 @@ class Login extends React.Component {
   }
 }
 
-export const LoginContainer = connect(Login.mapStateToProps, Login.mapDispatchToProps, userActions)(Login)
+export const LoginContainer = connect(Login.mapStateToProps, Login.mapDispatchToProps)(Login)

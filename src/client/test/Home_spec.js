@@ -11,5 +11,6 @@ describe('Home', () => {
     var h4 = TestUtils.findRenderedDOMComponentWithTag(component, 'h4')
     expect(ReactDOM.findDOMNode(h4).textContent).to.equal('RPG Character editor!')
     // expect(true).to.be.true
+    
   })
 })

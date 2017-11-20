@@ -5,6 +5,7 @@
   "main": "weback.mix.js",
   "scripts": {
     "test": "mocha --compilers js:babel-core/register --require ./src/client/test/test_helper.js ./src/client/test/* --reporter nyan",
+    "testwatch": "mocha --compilers js:babel-core/register --require ./src/client/test/test_helper.js ./src/client/test/* --reporter nyan --watch",
     "dev": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
     "watch": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
     "hot": "cross-env NODE_ENV=development webpack-dev-server --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",

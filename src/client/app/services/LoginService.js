@@ -7,7 +7,7 @@ var user = {
 
 export default {
   login (form) {
-    console.log(form)
+    // console.log(form)
     return axios({
       url: 'http://localhost:3000/login',
       method: 'POST',
